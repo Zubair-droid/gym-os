@@ -1,0 +1,126 @@
+/* --- IMPORTS --- */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;500;700&display=swap');
+@import 'animate.css'; /* Ensure you have installed animate.css or use CDN in index.html */
+
+:root {
+  /* BRAND COLORS */
+  --primary: #FF003C;       /* Cyberpunk Red */
+  --primary-glow: rgba(255, 0, 60, 0.4);
+  --success: #00F0FF;       /* Cyberpunk Cyan */
+  --dark-bg: #050505;       /* Deepest Black */
+  --card-bg: rgba(20, 20, 20, 0.6);
+  
+  /* SPACING */
+  --radius: 16px;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 3rem;
+}
+
+/* --- GLOBAL RESET --- */
+body {
+  background-color: var(--dark-bg);
+  /* Subtle mesh gradient for depth */
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(255, 0, 60, 0.08), transparent 25%), 
+    radial-gradient(circle at 85% 30%, rgba(0, 240, 255, 0.05), transparent 25%);
+  color: #ffffff;
+  font-family: 'Manrope', sans-serif; /* Clean, modern sans */
+  min-height: 100vh;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3, h4 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+p, span, div {
+  line-height: 1.6; /* Breathing space for text */
+}
+
+/* --- GLASS CARDS (The "Premium" Feel) --- */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  padding: var(--space-md); /* More internal breathing space */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* --- INPUTS (Modern & Minimal) --- */
+.form-control, .form-select {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+  padding: 15px !important; /* Larger touch targets */
+  border-radius: 12px !important;
+  font-family: 'Manrope', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+  background: rgba(0, 0, 0, 0.5) !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 15px var(--primary-glow) !important;
+}
+
+/* --- BUTTONS (High Energy) --- */
+.btn-neon {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  padding: 12px 30px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-neon:hover:not(:disabled) {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 0 20px var(--primary-glow);
+}
+
+.btn-neon:disabled {
+  border-color: #333;
+  color: #555;
+  cursor: not-allowed;
+}
+
+/* --- TABLE STYLING --- */
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-color: #ccc;
+}
+.table td, .table th {
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding: 15px 10px;
+}
+
+/* --- UTILITIES --- */
+.text-danger { color: var(--primary) !important; }
+.text-success { color: var(--success) !important; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
