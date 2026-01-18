@@ -195,7 +195,7 @@ function App() {
             <h2 className="text-white m-0" style={{fontFamily: 'Bebas Neue', letterSpacing: '2px'}}>
               GYM<span className="text-danger">OS</span>
             </h2>
-            <p className="small text-muted m-0">
+            <p className="small  m-0">
               <span className="badge bg-danger me-2">MEMBER</span> 
               {session.user.email}
             </p>
@@ -205,7 +205,7 @@ function App() {
 
       {/* CONTENT */}
       {loadingData ? (
-        <div className="text-center p-5 text-muted glass-card">
+        <div className="text-center p-5  glass-card">
            <div className="spinner-border text-danger mb-3"></div>
            <h4>Syncing Cloud Data...</h4>
         </div>
@@ -215,7 +215,7 @@ function App() {
            {history.length === 0 && (
              <div className="glass-card p-5 text-center animate__animated animate__fadeIn">
                <h1 className="display-4 fw-bold">WELCOME TO THE TEAM</h1>
-               <p className="lead text-muted mb-4">Let's initialize your profile. Record your starting weight below.</p>
+               <p className="lead  mb-4">Let's initialize your profile. Record your starting weight below.</p>
                <div style={{maxWidth: '500px', margin: '0 auto'}}>
                  <DietForm onGenerate={handleUpdate} initialWeight={""} />
                </div>
@@ -241,7 +241,7 @@ function App() {
                     <div className="glass-card mt-4 animate__animated animate__fadeInLeft">
                       <div className="d-flex justify-content-between mb-3">
                         <h5 className="text-white">DAILY CHECK-IN</h5>
-                        <button onClick={() => setShowUpdateForm(false)} className="btn btn-sm text-muted">✕</button>
+                        <button onClick={() => setShowUpdateForm(false)} className="btn btn-sm">✕</button>
                       </div>
                       <DietForm onGenerate={handleUpdate} initialWeight={history[history.length-1]?.weight} />
                     </div>
