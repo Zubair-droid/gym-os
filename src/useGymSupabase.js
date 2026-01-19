@@ -10,7 +10,7 @@ export const useGymSupabase = (session) => {
   // We use useCallback so this function doesn't get re-created on every render
   const fetchHistory = useCallback(async () => {
     // Safety Check: If no user ID, stop.
-    if (!session?.user?.id) return; 
+    if (!session?.user?.id) return;
 
     try {
       setLoadingData(true);
@@ -52,10 +52,21 @@ export const useGymSupabase = (session) => {
   }, [fetchHistory]);
 
   // 3. SAVE FUNCTION
-  const addCheckIn = async (weight, dietPlanHTML) => {
+  const addCheckIn = async (weight, dietPlanHTML, name) => {
     if (!session?.user?.id) return;
 
     try {
+
+      // 1. UPDATE PROFILE NAME (If provided)
+      if (name) {
+        const { error: profileError } = await supabase
+          .from('profiles')
+          .update({ full_name: name })
+          .eq('id', session.user.id);
+          
+        if (profileError) console.error("Name Update Failed:", profileError.message);
+      }
+
       const { error } = await supabase
         .from('checkins')
         .insert({
@@ -65,21 +76,22 @@ export const useGymSupabase = (session) => {
         });
 
       if (error) throw error;
-      
+
       // Refresh the list immediately
-      await fetchHistory(); 
-      
+      await fetchHistory();
+
     } catch (error) {
       console.error(error);
       alert("Save Failed: " + error.message);
     }
   };
 
-  return { 
-    history, 
-    currentPlan, 
-    addCheckIn, 
-    loadingData, 
-    startWeight: history.length > 0 ? history[0].weight : 0 
+  
+  return {
+    history,
+    currentPlan,
+    addCheckIn,
+    loadingData,
+    startWeight: history.length > 0 ? history[0].weight : 0
   };
 };
