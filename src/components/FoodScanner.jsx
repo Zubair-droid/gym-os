@@ -3,7 +3,7 @@ import Webcam from 'react-webcam';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // 1. SAFE KEY RETRIEVAL
-const API_KEY = 'AIzaSyC74HRF3GS4uKwLp-g1OXb_Wv06DRVMUqw' || import.meta.env.VITE_GOOGLE_API_KEY;
+const API_KEY = 'AIzaSyCXesjcKt5rFItNXOYYn0JQWapoD90JyR8' || import.meta.env.VITE_GOOGLE_API_KEY;
 const genAI = API_KEY ? new GoogleGenerativeAI(API_KEY) : null;
 
 
