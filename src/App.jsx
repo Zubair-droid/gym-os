@@ -15,9 +15,7 @@ import FoodScanner from './components/FoodScanner';
 import.meta.env.VITE_GOOGLE_API_KEY;
 
 // --- CONFIGURATION ---
-const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY || 'AIzaSyCXesjcKt5rFItNXOYYn0JQWapoD90JyR8';
-
-// 'AIzaSyArDl1tNnisnNikxJA62cX9u4pXWKCLylo'; 
+const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 // ⚡ SET TO 'true' FOR TESTING (Saves API Quota)
