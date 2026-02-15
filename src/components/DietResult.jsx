@@ -43,6 +43,7 @@ const DietResult = ({ plan, clientName }) => {
           {/* THE AI CONTENT INJECTED HERE */}
           <div className="diet-content"  >
             <div style={{color: 'black'}} dangerouslySetInnerHTML={{ __html: plan }}></div>
+            
           </div>
 
           {/* Footer */}

@@ -31,7 +31,7 @@ const cleanAIResponse = (text) => {
     // 2. If it fails, find the curly braces
     const firstBracket = text.indexOf('{');
     const lastBracket = text.lastIndexOf('}');
-    
+
     if (firstBracket !== -1 && lastBracket !== -1) {
       const jsonString = text.substring(firstBracket, lastBracket + 1);
       return JSON.parse(jsonString);
@@ -99,7 +99,7 @@ function App() {
 
       return `
         <tr>
-          <td style="color:white; font-weight:bold;">${meal.name}</td>
+          <td style="color:black; font-weight:bold;">${meal.name}</td>
           <td>${meal.items}</td>
           <td>${cals} cal</td>
         </tr>
@@ -111,7 +111,7 @@ function App() {
       <table class="table">
         <thead>
           <tr>
-            <th style="color:#888;">Meal</th>
+            <th style="color:black;">Meal</th>
             <th style="color:#888;">Items</th>
             <th style="color:#888;">Energy</th>
           </tr>
@@ -227,6 +227,7 @@ function App() {
       `Item: ${foodData.food_name}\n` +
       `Calories: ${foodData.calories} kcal\n` +
       `Protein: ${foodData.protein} g\n\n` +
+     // `Analysis: ${foodData.analysis}` +
       `Add this to your daily log?`
     );
 
@@ -236,7 +237,13 @@ function App() {
         <div style="border-left: 3px solid #00F0FF; padding-left: 10px; margin-bottom: 10px;">
           <strong>📸 SCANNED: ${foodData.food_name}</strong><br/>
           <span style="color:#ccc;">${foodData.calories} cal | ${foodData.protein}g protein</span>
+          <div className="bg-gray-100 p-3 rounded mt-2">
+              <p className="text-gray-700 italic">${foodData.analysis}</p>
+          </div>
         </div>
+         
+
+            
       `;
 
       // 3. Save to Cloud (Using current weight as placeholder since we are just logging food)
@@ -299,7 +306,10 @@ function App() {
               <FoodScanner
                 onScanComplete={handleScanComplete}
                 onClose={() => setShowScanner(false)}
+
               />
+
+
             </div>
           )}
 

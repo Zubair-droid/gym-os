@@ -37,7 +37,7 @@ const SmartStats = ({ history, startWeight }) => {
              {Math.abs(totalChange).toFixed(1)} <span className="fs-6">kg</span>
           </h2>
           {recentChange !== 0 && (
-             <small className="d-block mt-1 text-muted" style={{fontSize: '0.7rem'}}>
+             <small className={`d-block mt-1 text-white`} style={{fontSize: '0.7rem'}}>
                {recentChange > 0 ? '⬇️' : '⬆️'} {Math.abs(recentChange).toFixed(1)}kg since last check-in
              </small>
           )}
